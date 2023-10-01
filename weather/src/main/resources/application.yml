@@ -1,0 +1,28 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  error:
+    include-exception: true
+    include-message: always
+    include-stacktrace: always
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/project?serverTimezone=UTC&characterEncoding=UTF-8
+    username: root
+    password: 1704
+  #jpa
+  jpa:
+    show-sql: true
+    database: mysql
+    
+  #thymeleaf auto refresh
+  thymeleaf:
+    cache: false
+    check-template-location : true
+    mode: HTML
