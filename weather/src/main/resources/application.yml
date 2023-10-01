@@ -31,6 +31,12 @@ spring:
   output:
     ansi:
       enabled: always
+      
+  #swagger
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
+      
     
 # custom var    
 openweathermap:
