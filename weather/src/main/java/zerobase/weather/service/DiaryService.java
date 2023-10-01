@@ -23,6 +23,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import zerobase.weather.domain.DateWeather;
 import zerobase.weather.domain.Diary;
+import zerobase.weather.error.InvalidDate;
 import zerobase.weather.repo.DateWeatherRepo;
 import zerobase.weather.repo.DiaryRepo;
 
@@ -100,6 +101,8 @@ public class DiaryService {
 
     @Transactional(readOnly = true)
     public List<Diary> readDiary(LocalDate date) {
+//	if (date.isAfter(LocalDate.ofYearDay(3050, 1)))
+//	    throw new InvalidDate();
 	log.debug("다이어리 읽기");
 	return diaryRepo.findAllByDate(date);
     }

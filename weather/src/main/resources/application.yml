@@ -9,7 +9,7 @@ server:
   error:
     include-exception: true
     include-message: always
-    include-stacktrace: always
+    #include-stacktrace: always
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
