@@ -26,7 +26,14 @@ spring:
     cache: false
     check-template-location : true
     mode: HTML
+  
+  #log 색깔
+  output:
+    ansi:
+      enabled: always
     
 # custom var    
 openweathermap:
   key: a33bd82110c2b2a1d6df02ab80682736
+logging:
+  config: classpath:logback.xml

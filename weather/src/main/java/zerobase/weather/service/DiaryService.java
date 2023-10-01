@@ -20,11 +20,13 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import zerobase.weather.domain.DateWeather;
 import zerobase.weather.domain.Diary;
 import zerobase.weather.repo.DateWeatherRepo;
 import zerobase.weather.repo.DiaryRepo;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 @Transactional
@@ -45,6 +47,7 @@ public class DiaryService {
 	nowDiary.setDateWeather(dateWeather);
 	nowDiary.setText(text);
 	diaryRepo.save(nowDiary);
+	log.info("다이어리 생성 성공 {}", nowDiary);
     }
 
     private String getWeatherString() {
@@ -97,6 +100,7 @@ public class DiaryService {
 
     @Transactional(readOnly = true)
     public List<Diary> readDiary(LocalDate date) {
+	log.debug("다이어리 읽기");
 	return diaryRepo.findAllByDate(date);
     }
 
@@ -118,7 +122,9 @@ public class DiaryService {
     @Transactional
     @Scheduled(cron = "0 0 1 * * *")
     public void saveWeatherDate() {
-	dateWeatherRepo.save(getWeatherFromApi());
+	DateWeather dateWeather = getWeatherFromApi();
+	dateWeatherRepo.save(dateWeather);
+	log.info("{}일 날짜 데이터 가져옴", dateWeather.getDate());
     }
 
     private DateWeather getWeatherFromApi() {
