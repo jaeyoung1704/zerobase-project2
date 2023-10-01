@@ -12,6 +12,7 @@ import zerobase.weather.domain.Memo;
 import zerobase.weather.repo.JpaMemoRepo;
 
 @SpringBootTest
+//테스트에 transactional 붙히면 항상 롤백
 @Transactional
 public class JpaMemoRepoTest {
 

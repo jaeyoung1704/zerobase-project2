@@ -26,3 +26,7 @@ spring:
     cache: false
     check-template-location : true
     mode: HTML
+    
+# custom var    
+openweathermap:
+  key: a33bd82110c2b2a1d6df02ab80682736

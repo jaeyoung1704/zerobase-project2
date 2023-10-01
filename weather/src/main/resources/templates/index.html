@@ -7,5 +7,7 @@
 	<h3>메인페이지</h3>
 	<br>
 	<img src='http://openweathermap.org/img/wn/04n@2x.png'>
+	<br>
+	<span th:text="${#calendars.format(#calendars.createNow(),'yyyy년 MM월 dd일 hh:mm:ss')}">2023-10-01</span>
 </body>
-</html> 
+</html>
